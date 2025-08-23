@@ -1,5 +1,12 @@
 {
+  "name": "port-backend",
+  "version": "1.0.0",
   "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "axios": "^1.11.0",
     "body-parser": "^2.2.0",
