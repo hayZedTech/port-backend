@@ -10,27 +10,27 @@ const app = express();
 const PORT = process.env.PORT || 4000; 
 
 
-app.use(cors())
+// app.use(cors())
 
-// const allowedOrigins = [
-//   "http://localhost:5173",
-//   //"https://chat-frontend-flame-six.vercel.app" // ✅ add this
-// ];
+const allowedOrigins = [
+  "http://localhost:5173",
+  //"https://chat-frontend-flame-six.vercel.app" // ✅ add this
+];
 
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin) return callback(null, true); // allow Postman/curl
-//     if (allowedOrigins.indexOf(origin) === -1) {
-//       const msg = `CORS policy: No access from origin ${origin}`;
-//       return callback(new Error(msg), false);
-//     }
-//     return callback(null, true);
-//   },
-//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"]
-// }));
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman/curl
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `CORS policy: No access from origin ${origin}`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
-// app.options("*", cors());
+app.options("*", cors());
 app.use(bodyParser.json());
 
 app.post("/app", async (req,res)=>{
