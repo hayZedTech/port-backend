@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  //"https://chat-frontend-flame-six.vercel.app" // ✅ add this
+  "https://port-frontend-u36j.vercel.app" // ✅ add this
 ];
 
 app.use(cors({
